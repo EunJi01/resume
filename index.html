@@ -11,12 +11,12 @@
 
 <style>
   :root {
-    --paper: #f7f6f3;
+    --paper: #f6f5f2;
     --surface: #ffffff;
-    --ink: #211f2b;
-    --muted: #655f72;
-    --faint: #8d87a0;
-    --line: #e4e1ea;
+    --ink: #201e2a;
+    --muted: #5d5770;
+    --faint: #8b86a0;
+    --line: #e5e2ea;
     --accent: #4b3f72;
     --accent-ink: #4b3f72;
     --accent-soft: #efeaf7;
@@ -78,32 +78,34 @@
     background: var(--paper);
     color: var(--ink);
     font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
-    font-size: 15.5px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.75;
     padding: 56px 24px 96px;
     -webkit-font-smoothing: antialiased;
   }
 
   .page {
-    max-width: 880px;
+    max-width: 860px;
     margin: 0 auto;
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 56px 64px;
+    border-radius: 6px;
+    padding: 60px 68px;
   }
 
   @media (max-width: 640px) {
-    .page { padding: 36px 24px; }
-    body { padding: 24px 12px 64px; }
+    .page { padding: 40px 22px; }
+    body { padding: 20px 10px 64px; font-size: 15.5px; }
   }
+
+  /* ---------- header ---------- */
 
   .head {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     gap: 24px;
-    padding-bottom: 28px;
+    padding-bottom: 26px;
     border-bottom: 2px solid var(--ink);
     flex-wrap: wrap;
   }
@@ -111,8 +113,8 @@
   .head-left { display: flex; align-items: center; gap: 20px; }
 
   .avatar {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: var(--accent);
     color: var(--paper);
@@ -121,17 +123,17 @@
     justify-content: center;
     font-family: "Fraunces", serif;
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     flex: none;
   }
 
-  .name-block { display: flex; flex-direction: column; gap: 4px; }
+  .name-block { display: flex; flex-direction: column; gap: 6px; }
   .name-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
 
   .name {
     font-family: "Fraunces", serif;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2.1rem;
     letter-spacing: -0.01em;
   }
 
@@ -151,7 +153,7 @@
     color: var(--muted);
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 7px;
     align-items: flex-end;
     text-align: right;
   }
@@ -165,33 +167,66 @@
     .contact { align-items: flex-start; text-align: left; }
   }
 
+  /* ---------- shared ---------- */
+
   .eyebrow {
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.72rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--faint);
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  section.block { margin-top: 44px; }
+  .eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-  .intro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  @media (max-width: 640px) { .intro-grid { grid-template-columns: 1fr; } }
+  section.block { margin-top: 48px; }
 
-  .intro-card { padding: 18px 18px 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }
-  .intro-card h3 { margin: 0 0 10px; font-size: 0.94rem; font-weight: 700; }
-  .intro-card ul { margin: 0; padding-left: 16px; display: flex; flex-direction: column; gap: 6px; }
-  .intro-card li { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+  /* ---------- summary + highlights ---------- */
 
-  .summary { font-size: 1rem; line-height: 1.85; max-width: 720px; }
+  .summary { font-size: 1.02rem; line-height: 1.9; max-width: 720px; color: var(--ink); }
 
-  .grid { display: grid; grid-template-columns: 200px 1fr; gap: 40px; }
-  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; gap: 28px; } }
+  .highlight-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .hl {
+    font-size: 0.82rem;
+    color: var(--muted);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 7px 16px;
+    line-height: 1.4;
+  }
 
-  .skills dl { display: flex; flex-direction: column; gap: 16px; }
-  .skills dt { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
-  .skills dd { margin: 0; font-size: 0.86rem; color: var(--ink); line-height: 1.65; }
+  /* ---------- stack ---------- */
+
+  .stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 44px; }
+  @media (max-width: 640px) { .stack-grid { grid-template-columns: 1fr; gap: 22px; } }
+
+  .stack-cat h4 {
+    margin: 0 0 10px;
+    font-size: 0.76rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 600;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 14px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+
+  /* ---------- experience ---------- */
 
   .company-line {
     display: flex;
@@ -199,12 +234,12 @@
     align-items: baseline;
     flex-wrap: wrap;
     gap: 8px 20px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 24px;
+    margin: 36px 0 18px;
   }
 
-  .company-line .company { font-weight: 700; font-size: 1.08rem; }
+  .company-line:first-child { margin-top: 0; }
+
+  .company-line .company { font-weight: 700; font-size: 1.15rem; }
   .company-line .tenure {
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.82rem;
@@ -216,11 +251,11 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 26px 0;
-    padding: 10px 14px;
+    margin: 18px 0 32px;
+    padding: 11px 16px;
     background: var(--paper);
     border: 1px dashed var(--line);
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.8rem;
     color: var(--faint);
   }
@@ -232,8 +267,16 @@
     font-feature-settings: "tnum";
   }
 
-  .project { padding: 22px 0; border-top: 1px solid var(--line); }
-  .project:first-of-type { border-top: none; padding-top: 0; }
+  .project {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--faint);
+    border-radius: 8px;
+    padding: 20px 24px 22px;
+    margin-bottom: 14px;
+  }
+  .project.ios { border-left-color: var(--tag-ios); }
+  .project.flutter { border-left-color: var(--tag-flutter); }
 
   .project-head {
     display: flex;
@@ -244,7 +287,7 @@
     margin-bottom: 6px;
   }
 
-  .project-title { font-weight: 600; font-size: 1rem; }
+  .project-title { font-weight: 700; font-size: 1.03rem; }
 
   .stack-tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .tag {
@@ -259,7 +302,7 @@
   .tag.flutter { background: var(--tag-flutter-soft); color: var(--tag-flutter); }
   .tag.pm { background: var(--tag-pm-soft); color: var(--tag-pm); }
 
-  .project-sub { font-size: 0.84rem; color: var(--muted); margin-bottom: 10px; }
+  .project-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 10px; }
   .project-link { font-size: 0.78rem; color: var(--faint); margin-bottom: 14px; word-break: break-all; }
   .project-link a { color: var(--muted); }
   .project-link .sep { margin: 0 6px; color: var(--line); }
@@ -270,30 +313,32 @@
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
     margin: 14px 0 18px;
   }
   @media (max-width: 640px) { .stat-strip { grid-template-columns: repeat(2, 1fr); } }
 
-  .stat { background: var(--stat-bg); color: var(--stat-ink); padding: 14px 14px 12px; display: flex; flex-direction: column; gap: 4px; }
-  .stat .num { font-family: "IBM Plex Mono", monospace; font-size: 1.05rem; font-weight: 500; font-feature-settings: "tnum"; }
+  .stat { background: var(--stat-bg); color: var(--stat-ink); padding: 15px 14px 13px; display: flex; flex-direction: column; gap: 4px; }
+  .stat .num { font-family: "IBM Plex Mono", monospace; font-size: 1.1rem; font-weight: 500; font-feature-settings: "tnum"; }
   .stat .cap { font-size: 0.7rem; opacity: 0.68; line-height: 1.4; }
 
   .collab-note { font-size: 0.78rem; color: var(--faint); margin-bottom: 18px; }
 
-  ul.bullets { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
-  ul.bullets li { font-size: 0.92rem; line-height: 1.65; }
+  ul.bullets { margin: 0; padding-left: 19px; display: flex; flex-direction: column; gap: 8px; }
+  ul.bullets li { font-size: 0.93rem; line-height: 1.68; }
   ul.bullets li::marker { color: var(--faint); }
   ul.bullets .highlight { color: var(--accent-ink); font-weight: 600; }
 
-  .side-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  /* ---------- side projects ---------- */
+
+  .side-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 640px) { .side-grid { grid-template-columns: 1fr; } }
 
-  .side-card { border: 1px solid var(--line); border-radius: 4px; padding: 18px 20px; }
+  .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; }
   .side-card .project-head { margin-bottom: 4px; }
   .side-meta { font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; color: var(--faint); margin-bottom: 10px; font-feature-settings: "tnum"; }
-  .side-card p { margin: 0; font-size: 0.88rem; color: var(--ink); line-height: 1.6; }
+  .side-card p { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
 
   .badge {
     display: inline-block;
@@ -305,7 +350,10 @@
     background: var(--accent-soft);
     color: var(--accent-ink);
     margin-left: 8px;
+    vertical-align: middle;
   }
+
+  /* ---------- education ---------- */
 
   .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
   @media (max-width: 640px) { .edu-grid { grid-template-columns: 1fr; gap: 24px; } }
@@ -316,7 +364,7 @@
   .edu-row .sub { display: block; font-size: 0.76rem; color: var(--faint); margin-top: 2px; }
   .edu-row .when { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; color: var(--muted); white-space: nowrap; font-feature-settings: "tnum"; }
 
-  footer.note { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--faint); }
+  footer.note { margin-top: 52px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--faint); }
 </style>
 </head>
 <body>
@@ -354,33 +402,6 @@
   </script>
 
   <section class="block">
-    <div class="eyebrow">Profile</div>
-    <div class="intro-grid">
-      <div class="intro-card">
-        <h3>🌠 능동적이고 융통성 있는 자세</h3>
-        <ul>
-          <li>기획 의도에 맞도록 한 가지 기능도 여러 방향에서 생각하고 구현합니다.</li>
-          <li>작업에 앞서 우선순위와 예상 시간을 산정해 계획을 세우고 시작합니다.</li>
-        </ul>
-      </div>
-      <div class="intro-card">
-        <h3>🌃 기술적 완성도를 높이기 위한 노력</h3>
-        <ul>
-          <li>개발일지 및 블로그를 작성해 사용한 기술에 대한 이해도를 높입니다.</li>
-          <li>로직을 분리해 재사용성과 가독성을 개선하고, 코드 중복을 최소화합니다.</li>
-        </ul>
-      </div>
-      <div class="intro-card">
-        <h3>🌌 더 나은 UI/UX에 대한 고찰</h3>
-        <ul>
-          <li>Apple의 HIG와 사용자 편의성을 두루 고려한 UI를 고민합니다.</li>
-          <li>다양한 View 개발 경험을 통해 여러 형태의 Custom UI를 구현할 수 있습니다.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
     <div class="eyebrow">Summary</div>
     <p class="summary">
       iOS(Swift) 네이티브로 커리어를 시작해 국내 1위 러닝 앱 "런데이"에서 실시간 운동 경쟁·위젯·결제 등
@@ -391,160 +412,177 @@
       개발과 PM 역할을 겸임하며 API 스펙 조율·클라이언트 커뮤니케이션·스토어 배포까지 전 과정을 책임진
       경험도 있습니다. 플랫폼과 도메인, 역할을 가리지 않고 끝까지 구현하고 책임지는 것이 강점입니다.
     </p>
+    <div class="highlight-row">
+      <span class="hl">🌠 기획 의도를 여러 방향에서 검토하는 능동적 사고</span>
+      <span class="hl">🌃 개발일지·블로그 기록을 통한 구조화와 재사용성 개선</span>
+      <span class="hl">🌌 Apple HIG 기반의 세심한 UI/UX 감각</span>
+    </div>
   </section>
 
-  <div class="grid block">
-    <aside class="skills">
-      <div class="eyebrow">Stack</div>
-      <dl>
-        <div>
-          <dt>Language</dt>
-          <dd>Swift, Objective-C, Dart</dd>
+  <section class="block">
+    <div class="eyebrow">Stack</div>
+    <div class="stack-grid">
+      <div class="stack-cat">
+        <h4>Language</h4>
+        <div class="chips">
+          <span class="chip">Swift</span><span class="chip">Objective-C</span><span class="chip">Dart</span>
         </div>
-        <div>
-          <dt>iOS</dt>
-          <dd>UIKit, SwiftUI, Storyboard/XIB, SnapKit CodeBase UI, Compositional Layout, WidgetKit, ActivityKit(Live Activity/Dynamic Island), Moya, Alamofire, RxSwift, Realm</dd>
-        </div>
-        <div>
-          <dt>Flutter</dt>
-          <dd>Riverpod, Provider, go_router, Drift/SQLite, Hive, Dio, GetIt, flutter_secure_storage</dd>
-        </div>
-        <div>
-          <dt>Architecture</dt>
-          <dd>MVC, MVVM, RxSwift Input/Output, Clean Architecture</dd>
-        </div>
-        <div>
-          <dt>Realtime / Network</dt>
-          <dd>SocketIO, URLSession, Alamofire, WebKit, REST API</dd>
-        </div>
-        <div>
-          <dt>Platform</dt>
-          <dd>CoreLocation, CoreMotion, HealthKit, MapKit/flutter_naver_map, Firebase(Crashlytics/Analytics/Auth/FCM), 소셜로그인(Kakao/Naver), 생체인증, 간편인증(Inicis), KYC, 블록체인(web3dart/bip32/bip39), AdMob, 인앱결제</dd>
-        </div>
-        <div>
-          <dt>Tools</dt>
-          <dd>Git, Xcode, Android Studio, CocoaPods, SPM, Figma, Zeplin, Confluence, SVN, App Store Connect, Play Console</dd>
-        </div>
-      </dl>
-    </aside>
-
-    <main class="experience">
-      <div class="eyebrow">Experience</div>
-
-      <div class="company-line">
-        <span class="company">(주)스페이스씨엘 · 모바일 앱 개발자</span>
-        <span class="tenure">2025.10 — 현재</span>
       </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">다산패스 — 필기·실기 통합 (Flutter)</span>
-          <span class="stack-tags"><span class="tag flutter">Flutter</span></span>
+      <div class="stack-cat">
+        <h4>Flutter</h4>
+        <div class="chips">
+          <span class="chip">Riverpod</span><span class="chip">Provider</span><span class="chip">go_router</span><span class="chip">Drift/SQLite</span><span class="chip">Hive</span><span class="chip">Dio</span><span class="chip">GetIt</span><span class="chip">flutter_secure_storage</span>
         </div>
-        <div class="project-sub">고객사: 다산에듀 · 2026.08 — 현재 (약 3개월)</div>
-        <ul class="bullets">
-          <li>필기·실기 iOS/Android 네이티브 4개 앱을 Flutter 단일 코드베이스로 재설계하는 신규 프로젝트를 <span class="highlight">설계부터 구현까지 단독 리드</span> (해당 레포지토리 전체 커밋 단독 처리)</li>
-          <li>서드파티 SDK 없이 손글씨 인식 캔버스를 CustomPainter로 직접 구현, Riverpod 상태관리·Drift 로컬DB 아키텍처 설계</li>
-        </ul>
       </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">Ayla — 암호화폐 지갑</span>
-          <span class="stack-tags"><span class="tag flutter">Flutter</span></span>
+      <div class="stack-cat">
+        <h4>iOS</h4>
+        <div class="chips">
+          <span class="chip">UIKit</span><span class="chip">SwiftUI</span><span class="chip">Storyboard/XIB</span><span class="chip">SnapKit</span><span class="chip">Compositional Layout</span><span class="chip">WidgetKit</span><span class="chip">ActivityKit</span><span class="chip">Moya</span><span class="chip">Alamofire</span><span class="chip">RxSwift</span><span class="chip">Realm</span>
         </div>
-        <div class="project-sub">고객사: 웜파이프 · 2026.06 — 2026.08 (약 2개월)</div>
-        <ul class="bullets">
-          <li>KYC 본인인증, 생체인증(라이브니스), 카드 발급/충전/정지/해지, 멀티코인(USDT·AAG) 입출금, 멀티브랜드 테마 시스템 등 핀테크 핵심 기능 다수 구현</li>
-        </ul>
       </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">콜프렌드 — 대리기사 호출 서비스 (기사용·고객용·법인용)</span>
-          <span class="stack-tags"><span class="tag flutter">Flutter</span></span>
+      <div class="stack-cat">
+        <h4>Architecture</h4>
+        <div class="chips">
+          <span class="chip">MVC</span><span class="chip">MVVM</span><span class="chip">RxSwift Input/Output</span><span class="chip">Clean Architecture</span>
         </div>
-        <div class="project-sub">고객사: 한국플랫폼모빌리티협회 · 2026.06 — 2026.08 (약 2개월)</div>
-        <div class="project-link">Google Play: <a href="https://play.google.com/store/apps/details?id=kr.or.kddsa.kdmp_dm_app">기사용</a><span class="sep">·</span><a href="https://play.google.com/store/apps/details?id=kr.or.kddsa.kdmp_cm_app">고객용</a><span class="sep">·</span><a href="https://play.google.com/store/apps/details?id=kr.or.kddsa.kdmp_cm_corporate_app">법인용</a></div>
-        <ul class="bullets">
-          <li>현장콜 접수 → 운행 → 결제로 이어지는 핵심 플로우 구현, 네이버맵·Tmap·카카오내비 연동</li>
-          <li>기사용·고객용·법인 고객용 <span class="highlight">3개 앱을 동시에</span> 담당하며 공통 로직을 재사용하고 리브랜딩(로고·앱명 전환) 대응</li>
-        </ul>
       </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">코인라이트 — 암호화폐 시세·뉴스 앱</span>
-          <span class="stack-tags"><span class="tag flutter">Flutter</span><span class="tag pm">PM 겸임</span></span>
+      <div class="stack-cat">
+        <h4>Realtime / Network</h4>
+        <div class="chips">
+          <span class="chip">SocketIO</span><span class="chip">URLSession</span><span class="chip">Alamofire</span><span class="chip">WebKit</span><span class="chip">REST API</span>
         </div>
-        <div class="project-sub">고객사: 코인라이트 · 2026.04 — 2026.07 (약 4개월)</div>
-        <ul class="bullets">
-          <li><span class="highlight">1인 개발 체제에서 기획부터 배포까지 전 과정을 단독 수행, 직책상 PM 겸임</span> — 서버 개발자에게 필요한 API 스펙을 직접 지시·조율하고, 클라이언트사 대표와 직접 커뮤니케이션하며 요구사항·우선순위를 조율</li>
-          <li>앱스토어/플레이스토어 개발자 계정을 직접 위임받아 배포·심사 대응을 전담</li>
-          <li>FCM 푸시 알림, 홈 위젯 연동, 뉴스룸 상세 템플릿, 다크모드 등 기능 개발</li>
-        </ul>
       </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">다산패스 실기</span>
-          <span class="stack-tags"><span class="tag ios">Swift</span></span>
+      <div class="stack-cat">
+        <h4>Platform / Domain</h4>
+        <div class="chips">
+          <span class="chip">CoreLocation</span><span class="chip">CoreMotion</span><span class="chip">HealthKit</span><span class="chip">MapKit / flutter_naver_map</span><span class="chip">Firebase</span><span class="chip">카카오·네이버 소셜로그인</span><span class="chip">생체인증</span><span class="chip">Inicis 간편인증</span><span class="chip">KYC</span><span class="chip">web3dart / bip32 / bip39</span><span class="chip">AdMob</span><span class="chip">인앱결제</span>
         </div>
-        <div class="project-sub">고객사: 다산에듀 · 2026.02 — 현재 (약 9개월)</div>
-        <div class="project-link">App Store: <a href="https://apps.apple.com/kr/app/id6471073697">다산패스 실기</a></div>
-        <ul class="bullets">
-          <li>학습시간 집계, 모의고사/오답노트/암기카드 기능 개선 및 구독 결제 플로우 보완</li>
-        </ul>
       </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">다산패스 필기</span>
-          <span class="stack-tags"><span class="tag ios">Swift</span></span>
+      <div class="stack-cat">
+        <h4>Tools</h4>
+        <div class="chips">
+          <span class="chip">Git</span><span class="chip">Xcode</span><span class="chip">Android Studio</span><span class="chip">CocoaPods</span><span class="chip">SPM</span><span class="chip">Figma</span><span class="chip">Zeplin</span><span class="chip">Confluence</span><span class="chip">SVN</span><span class="chip">App Store Connect</span><span class="chip">Play Console</span>
         </div>
-        <div class="project-sub">고객사: 다산에듀 · 2025.10 — 현재 (약 13개월)</div>
-        <div class="project-link">App Store: <a href="https://apps.apple.com/kr/app/id6756396501">다산패스 필기</a></div>
-        <ul class="bullets">
-          <li>입사 이후 <span class="highlight">핵심 개발 인력</span>으로 투입되어 문제풀이·OMR·필기인식 캔버스·구독결제 등 앱 전반을 1년 이상 담당, 해당 레포지토리 전체 커밋의 과반 이상을 단독 처리</li>
-        </ul>
       </div>
+    </div>
+  </section>
 
-      <div class="gap-note">
-        <span class="tenure">2024.06 — 2025.09</span>
-        <span>이직 준비 및 자격증 취득 — 정보처리산업기사, JLPT N2</span>
+  <section class="block">
+    <div class="eyebrow">Experience</div>
+
+    <div class="company-line">
+      <span class="company">(주)스페이스씨엘 · 모바일 앱 개발자</span>
+      <span class="tenure">2025.10 — 현재</span>
+    </div>
+
+    <div class="project flutter">
+      <div class="project-head">
+        <span class="project-title">다산패스 — 필기·실기 통합 (Flutter)</span>
+        <span class="stack-tags"><span class="tag flutter">Flutter</span></span>
       </div>
+      <div class="project-sub">고객사: 다산에듀 · 2026.08 — 현재 (약 3개월)</div>
+      <ul class="bullets">
+        <li>필기·실기 iOS/Android 네이티브 4개 앱을 Flutter 단일 코드베이스로 재설계하는 신규 프로젝트를 <span class="highlight">설계부터 구현까지 단독 리드</span> (해당 레포지토리 전체 커밋 단독 처리)</li>
+        <li>서드파티 SDK 없이 손글씨 인식 캔버스를 CustomPainter로 직접 구현, Riverpod 상태관리·Drift 로컬DB 아키텍처 설계</li>
+      </ul>
+    </div>
 
-      <div class="company-line">
-        <span class="company">(주)TTAM · iOS 개발자</span>
-        <span class="tenure">2023.03 — 2024.05</span>
+    <div class="project flutter">
+      <div class="project-head">
+        <span class="project-title">Ayla — 암호화폐 지갑</span>
+        <span class="stack-tags"><span class="tag flutter">Flutter</span></span>
       </div>
+      <div class="project-sub">고객사: 웜파이프 · 2026.06 — 2026.08 (약 2개월)</div>
+      <ul class="bullets">
+        <li>KYC 본인인증, 생체인증(라이브니스), 카드 발급/충전/정지/해지, 멀티코인(USDT·AAG) 입출금, 멀티브랜드 테마 시스템 등 핀테크 핵심 기능 다수 구현</li>
+      </ul>
+    </div>
 
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">RunDay — GPS 기반 달리기 코칭 앱</span>
-          <span class="stack-tags"><span class="tag ios">Swift</span></span>
-        </div>
-        <div class="project-link">국내 러닝앱 1위 · App Store: <a href="https://apps.apple.com/kr/app/id1042937618">런데이</a><span class="sep">·</span>Google Play: <a href="https://play.google.com/store/apps/details?id=com.hanbit.rundayfree">런데이</a></div>
-
-        <div class="stat-strip">
-          <div class="stat"><span class="num">37만</span><span class="cap">MAU</span></div>
-          <div class="stat"><span class="num">400만+</span><span class="cap">누적 다운로드</span></div>
-          <div class="stat"><span class="num">★3.8</span><span class="cap">iOS 평점 (4.3천+)</span></div>
-          <div class="stat"><span class="num">★4.6</span><span class="cap">AOS 평점 (3.18만+)</span></div>
-        </div>
-        <div class="collab-note">넷플릭스, 지니뮤직 등 외부 기업과 협업 프로모션 진행 · 다국어 지원</div>
-
-        <ul class="bullets">
-          <li><span class="highlight">CoreMotion</span> 기반 실시간 걸음수 측정 기능 및 어뷰징 방지 방어 로직 구현</li>
-          <li><span class="highlight">WidgetKit / Live Activity / Dynamic Island</span> 적용 — 홈화면 위젯과 운동 중 실시간 현황 표시 기능 구현, 서버 동기화</li>
-          <li><span class="highlight">SocketIO</span> 기반 실시간 운동 경쟁(게임) 서비스 및 채팅 구현, Custom UI로 실시간 순위 차트·변동 애니메이션 구현</li>
-          <li>Inicis 간편인증을 통한 만 14세 미만 회원가입 프로세스, Naver·Kakao 소셜 로그인 구현</li>
-          <li>GoogleAdmob 맞춤광고 연동 및 인앱결제 연동 광고 제거 기능 구현</li>
-          <li><span class="highlight">Objective-C → Swift</span> 전환, Storyboard 기반 View를 SnapKit 활용 CodeBase UI로 리팩토링</li>
-        </ul>
+    <div class="project flutter">
+      <div class="project-head">
+        <span class="project-title">콜프렌드 — 대리기사 호출 서비스 (기사용·고객용·법인용)</span>
+        <span class="stack-tags"><span class="tag flutter">Flutter</span></span>
       </div>
-    </main>
-  </div>
+      <div class="project-sub">고객사: 한국플랫폼모빌리티협회 · 2026.06 — 2026.08 (약 2개월)</div>
+      <div class="project-link">Google Play: <a href="https://play.google.com/store/apps/details?id=kr.or.kddsa.kdmp_dm_app">기사용</a><span class="sep">·</span><a href="https://play.google.com/store/apps/details?id=kr.or.kddsa.kdmp_cm_app">고객용</a><span class="sep">·</span><a href="https://play.google.com/store/apps/details?id=kr.or.kddsa.kdmp_cm_corporate_app">법인용</a></div>
+      <ul class="bullets">
+        <li>현장콜 접수 → 운행 → 결제로 이어지는 핵심 플로우 구현, 네이버맵·Tmap·카카오내비 연동</li>
+        <li>기사용·고객용·법인 고객용 <span class="highlight">3개 앱을 동시에</span> 담당하며 공통 로직을 재사용하고 리브랜딩(로고·앱명 전환) 대응</li>
+      </ul>
+    </div>
+
+    <div class="project flutter">
+      <div class="project-head">
+        <span class="project-title">코인라이트 — 암호화폐 시세·뉴스 앱</span>
+        <span class="stack-tags"><span class="tag flutter">Flutter</span><span class="tag pm">PM 겸임</span></span>
+      </div>
+      <div class="project-sub">고객사: 코인라이트 · 2026.04 — 2026.07 (약 4개월)</div>
+      <ul class="bullets">
+        <li><span class="highlight">1인 개발 체제에서 기획부터 배포까지 전 과정을 단독 수행, 직책상 PM 겸임</span> — 서버 개발자에게 필요한 API 스펙을 직접 지시·조율하고, 클라이언트사 대표와 직접 커뮤니케이션하며 요구사항·우선순위를 조율</li>
+        <li>앱스토어/플레이스토어 개발자 계정을 직접 위임받아 배포·심사 대응을 전담</li>
+        <li>FCM 푸시 알림, 홈 위젯 연동, 뉴스룸 상세 템플릿, 다크모드 등 기능 개발</li>
+      </ul>
+    </div>
+
+    <div class="project ios">
+      <div class="project-head">
+        <span class="project-title">다산패스 실기</span>
+        <span class="stack-tags"><span class="tag ios">Swift</span></span>
+      </div>
+      <div class="project-sub">고객사: 다산에듀 · 2026.02 — 현재 (약 9개월)</div>
+      <div class="project-link">App Store: <a href="https://apps.apple.com/kr/app/id6471073697">다산패스 실기</a></div>
+      <ul class="bullets">
+        <li>학습시간 집계, 모의고사/오답노트/암기카드 기능 개선 및 구독 결제 플로우 보완</li>
+      </ul>
+    </div>
+
+    <div class="project ios">
+      <div class="project-head">
+        <span class="project-title">다산패스 필기</span>
+        <span class="stack-tags"><span class="tag ios">Swift</span></span>
+      </div>
+      <div class="project-sub">고객사: 다산에듀 · 2025.10 — 현재 (약 13개월)</div>
+      <div class="project-link">App Store: <a href="https://apps.apple.com/kr/app/id6756396501">다산패스 필기</a></div>
+      <ul class="bullets">
+        <li>입사 이후 <span class="highlight">핵심 개발 인력</span>으로 투입되어 문제풀이·OMR·필기인식 캔버스·구독결제 등 앱 전반을 1년 이상 담당, 해당 레포지토리 전체 커밋의 과반 이상을 단독 처리</li>
+      </ul>
+    </div>
+
+    <div class="gap-note">
+      <span class="tenure">2024.06 — 2025.09</span>
+      <span>이직 준비 및 자격증 취득 — 정보처리산업기사, JLPT N2</span>
+    </div>
+
+    <div class="company-line">
+      <span class="company">(주)TTAM · iOS 개발자</span>
+      <span class="tenure">2023.03 — 2024.05</span>
+    </div>
+
+    <div class="project ios">
+      <div class="project-head">
+        <span class="project-title">RunDay — GPS 기반 달리기 코칭 앱</span>
+        <span class="stack-tags"><span class="tag ios">Swift</span></span>
+      </div>
+      <div class="project-link">국내 러닝앱 1위 · App Store: <a href="https://apps.apple.com/kr/app/id1042937618">런데이</a><span class="sep">·</span>Google Play: <a href="https://play.google.com/store/apps/details?id=com.hanbit.rundayfree">런데이</a></div>
+
+      <div class="stat-strip">
+        <div class="stat"><span class="num">37만</span><span class="cap">MAU</span></div>
+        <div class="stat"><span class="num">400만+</span><span class="cap">누적 다운로드</span></div>
+        <div class="stat"><span class="num">★3.8</span><span class="cap">iOS 평점 (4.3천+)</span></div>
+        <div class="stat"><span class="num">★4.6</span><span class="cap">AOS 평점 (3.18만+)</span></div>
+      </div>
+      <div class="collab-note">넷플릭스, 지니뮤직 등 외부 기업과 협업 프로모션 진행 · 다국어 지원</div>
+
+      <ul class="bullets">
+        <li><span class="highlight">CoreMotion</span> 기반 실시간 걸음수 측정 기능 및 어뷰징 방지 방어 로직 구현</li>
+        <li><span class="highlight">WidgetKit / Live Activity / Dynamic Island</span> 적용 — 홈화면 위젯과 운동 중 실시간 현황 표시 기능 구현, 서버 동기화</li>
+        <li><span class="highlight">SocketIO</span> 기반 실시간 운동 경쟁(게임) 서비스 및 채팅 구현, Custom UI로 실시간 순위 차트·변동 애니메이션 구현</li>
+        <li>Inicis 간편인증을 통한 만 14세 미만 회원가입 프로세스, Naver·Kakao 소셜 로그인 구현</li>
+        <li>GoogleAdmob 맞춤광고 연동 및 인앱결제 연동 광고 제거 기능 구현</li>
+        <li><span class="highlight">Objective-C → Swift</span> 전환, Storyboard 기반 View를 SnapKit 활용 CodeBase UI로 리팩토링</li>
+      </ul>
+    </div>
+  </section>
 
   <section class="block">
     <div class="eyebrow">Side Project — 1인 개발</div>
