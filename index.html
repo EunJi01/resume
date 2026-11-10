@@ -350,6 +350,42 @@
   .edu-row .when { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; color: var(--muted); white-space: nowrap; font-feature-settings: "tnum"; }
 
   footer.note { margin-top: 52px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--faint); }
+
+  .badge-active {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.02em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    margin-left: 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  @media print {
+    :root, :root:not([data-theme="light"]) {
+      --paper: #ffffff;
+      --surface: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #3f3f3f;
+      --faint: #6b6b6b;
+      --line: #cfcfcf;
+      --accent-soft: #f0f0f0;
+      --tag-ios-soft: #f0f0f0;
+      --tag-flutter-soft: #f0f0f0;
+      --tag-pm-soft: #f0f0f0;
+      --stat-bg: #ffffff;
+      --stat-ink: #1a1a1a;
+    }
+    body { padding: 0; }
+    .page { border: none; border-radius: 0; padding: 12px 4px; max-width: 100%; }
+    .project, .side-card { border: 1px solid var(--line); }
+    .stat { border: 1px solid var(--line); }
+    a { text-decoration: underline; }
+  }
 </style>
 </head>
 <body>
@@ -398,7 +434,7 @@
     </p>
     <div class="highlight-row">
       <span class="hl">🌠 기획 의도를 여러 방향에서 검토하는 능동적 사고</span>
-      <span class="hl">🌃 개발일지·블로그 기록을 통한 구조화와 재사용성 개선</span>
+      <span class="hl">🌃 기술 블로그 60여 편 포스팅 — 학습 내용을 글로 구조화하는 습관</span>
       <span class="hl">🌌 Apple HIG 기반의 세심한 UI/UX 감각</span>
     </div>
   </section>
@@ -413,7 +449,7 @@
 
     <div class="project flutter">
       <div class="project-head">
-        <span class="project-title">다산패스 — 필기·실기 통합 (Flutter)</span>
+        <span class="project-title">다산패스 — 필기·실기 통합 (Flutter) <span class="badge-active">● 진행중</span></span>
         <span class="stack-tags"><span class="tag flutter">Flutter</span></span>
       </div>
       <div class="project-sub">고객사: 다산에듀 · 2026.08 — 현재</div>
@@ -463,7 +499,7 @@
 
     <div class="project ios">
       <div class="project-head">
-        <span class="project-title">다산패스 실기</span>
+        <span class="project-title">다산패스 실기 <span class="badge-active">● 진행중</span></span>
         <span class="stack-tags"><span class="tag ios">Swift</span></span>
       </div>
       <div class="project-sub">고객사: 다산에듀 · 2025.10 — 현재</div>
@@ -475,7 +511,7 @@
 
     <div class="project ios">
       <div class="project-head">
-        <span class="project-title">다산패스 필기</span>
+        <span class="project-title">다산패스 필기 <span class="badge-active">● 진행중</span></span>
         <span class="stack-tags"><span class="tag ios">Swift</span></span>
       </div>
       <div class="project-sub">고객사: 다산에듀 · 2025.10 — 현재</div>
@@ -609,7 +645,7 @@
       <div class="stack-cat">
         <h4>Platform / Domain</h4>
         <div class="chips">
-          <span class="chip">CoreLocation</span><span class="chip">CoreMotion</span><span class="chip">HealthKit</span><span class="chip">MapKit / flutter_naver_map</span><span class="chip">Firebase</span><span class="chip">카카오·네이버 소셜로그인</span><span class="chip">생체인증</span><span class="chip">Inicis 간편인증</span><span class="chip">KYC</span><span class="chip">web3dart / bip32 / bip39</span><span class="chip">AdMob</span><span class="chip">인앱결제</span>
+          <span class="chip">CoreLocation</span><span class="chip">CoreMotion</span><span class="chip">HealthKit</span><span class="chip">MapKit / flutter_naver_map</span><span class="chip">Firebase (Analytics·Crashlytics)</span><span class="chip">카카오·네이버 소셜로그인</span><span class="chip">생체인증</span><span class="chip">Inicis 간편인증</span><span class="chip">KYC</span><span class="chip">web3dart / bip32 / bip39</span><span class="chip">AdMob</span><span class="chip">인앱결제</span>
         </div>
       </div>
       <div class="stack-cat">
